@@ -1,0 +1,5 @@
+#ifndef RESONANCETYPE_HPP
+#define RESONANCETYPE_HPP
+
+
+#endif
