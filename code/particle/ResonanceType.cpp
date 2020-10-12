@@ -1,6 +1,6 @@
 #include "ResonanceType.hpp"
 
-ResonanceType::ResonanceType(std::string name, double mass, int charge, double width) : ParticleType{name, mass, charge}, width_{width} {}
+ResonanceType::ResonanceType(ParticleType const& particle, double width) : ParticleType{particle}, width_{width} {}
 
 double ResonanceType::getWidth() { return width_; }
 
