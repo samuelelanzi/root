@@ -4,7 +4,7 @@
 #include <iostream>
 
 class ParticleType {
-private:
+protected:
     std::string name_;
     double mass_;
     int charge_;
@@ -16,7 +16,7 @@ public:
     double getMass();
     int getCharge();
 
-    void print();
+    virtual void print();
 };
 
 #endif
