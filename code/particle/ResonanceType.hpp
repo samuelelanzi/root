@@ -7,7 +7,7 @@ class ResonanceType : public ParticleType {
 protected:
     double width_;
 public:
-    ResonanceType(std::string name, double mass, int charge, double width);
+    ResonanceType(ParticleType const& particle, double width);
 
     double getWidth();
 
