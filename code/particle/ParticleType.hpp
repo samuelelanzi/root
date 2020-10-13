@@ -11,7 +11,6 @@ protected:
 
 public:
     ParticleType(std::string name, double mass, int charge);
-
     std::string getName();
     double getMass();
     int getCharge();
