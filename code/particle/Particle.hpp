@@ -6,7 +6,7 @@
 class Particle {
 private:
     static ParticleType* ParticleType_[];
-    static const int MaxNumParticleType_;
+    static int MaxNumParticleType_;
     static int NParticleType_;
     int IParticle_;
     double Px_;
@@ -14,7 +14,7 @@ private:
     double Pz_;
 public:
     Particle(std::string name);
-
+    ~Particle();
     int getIParticle();
 };
 #endif
