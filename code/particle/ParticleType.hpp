@@ -3,8 +3,17 @@
 #include <iostream>
 
 class ParticleType {
-protected:
+private:
+    std::string const fName;
+    double const fMass;
+    int const fCharge;
 public:
+    ParticleType(std::string name, double mass, int charge);
+    std::string getName();
+    double getMass();
+    int getCharge();
+
+    virtual void Print();
 };
 
 #endif
