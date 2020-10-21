@@ -4,8 +4,12 @@
 #include "ParticleType.hpp"
 
 class ResonanceType : public ParticleType {
-protected:
+private:
+    double const fWidth;
 public:
+    ResonanceType(ParticleType particle_t, double width);
+    double getWidth();
+    void Print() override;
 };
 
 #endif
