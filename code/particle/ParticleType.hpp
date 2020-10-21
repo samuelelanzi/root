@@ -3,7 +3,7 @@
 #include <iostream>
 
 class ParticleType {
-private:
+protected:
     std::string const fName;
     double const fMass;
     int const fCharge;

@@ -7,5 +7,8 @@ double ResonanceType::getWidth() {
 }
     
 void ResonanceType::Print() {
+    std::cout << "Name: " << fName << '\n';
+    std::cout << "Mass: " << fMass << '\n';
+    std::cout << "Charge: " << fCharge << '\n';
     std::cout << "Resonance: " << fWidth << '\n';
 }

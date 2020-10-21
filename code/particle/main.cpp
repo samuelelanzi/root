@@ -2,15 +2,13 @@
 #include "ResonanceType.hpp"
 #include <vector>
 
-int main() {
-    ParticleType particle {"electron", 9.1e-31, -1};
-  //  particle.Print();
-    ResonanceType resonance {particle, 3.2};
+int main() {    ParticleType* particle = new ParticleType {"electron", 9.1e-31, -1};
+    //particle.Print();
+    ResonanceType* resonance = new ResonanceType {*particle, 0.};
     //resonance.Print();
-    
-    std::vector <ParticleType> ParticleV {particle, resonance};
-    
-    for (auto i: ParticleV){
-        i.Print();
+    std::vector<ParticleType*> particle_v {particle, resonance};
+
+    for(auto i : particle_v) {
+        i -> Print();
     }
 }
