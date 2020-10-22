@@ -2,8 +2,10 @@
 #define PARTICLE_HPP
 
 #include "ParticleType.hpp"
+#include "ResonanceType.hpp"
 #include <algorithm>
 #include <cmath>
+#include <cstdlib>
 #include <vector>
 
 struct P {
@@ -18,23 +20,21 @@ private:
     std::string fName;
     P fP;
     int fNParticleType = 0;
-
-    ParticleType* FindParticle(std::vector<ParticleType*> const& particle_v) {
-        for(auto i : particle_v) {
-            ++fNParticleType;
-            auto result = i -> getName() == fName;
-            if(result) {
-                return i;
-            } 
-        }
-    }
+    int fIParticle;
+    ParticleType* FindParticle(std::vector<ParticleType*> const& particle_v);
+    void Boost(double bx, double by, double bz);
 
 public:
-    Particle(std::vector<ParticleType*> particle_v, std::string name, P p);
+    Particle(std::vector<ParticleType*> particle_v, std::string name, P p, int i);
+    int getIParticle();
     P getP();
     void setP(double const& px, double const& py, double const& pz);
+    double getParticleMass();
+    void printParticle();
     ParticleType* AddParticleType(std::string const& name, double const& mass, int const& charge, int const& width);
     double Energy();
+    int Decay2body(Particle &dau1, Particle &dau2);
+
 };
 
 #endif
