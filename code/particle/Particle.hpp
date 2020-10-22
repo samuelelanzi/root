@@ -15,20 +15,22 @@ class Particle {
 private:
     std::vector<ParticleType*> fParticleType;
     int fNParticleType;
-    int fIParticle;
+    int fIParticle = 0;
     P fP;
     std::string fName;
 
-    void FindParticle(std::string const& name) {
-        for(auto i : fParticleType) {
-            bool result = i -> getName() == name;
-            auto it = std::find_if(fParticleType.begin(), fParticleType.end(), [](bool result){
-                return result;
-            });
+    void FindParticle(std::vector<ParticleType*> const& particle_v) {
+        for(auto i : particle_v) {
+            auto result = i -> getName() == fName;
+            if(result) {
+                ++fIParticle;
+                std::cout << "Find " << fName << ' ' << "at the " << fIParticle << "-th " << "position" << '\n';
+            }
         }
     }
+
 public:
-    Particle(std::vector<ParticleType*> particle_v, P p);
+    Particle(std::vector<ParticleType*> particle_v, std::string name, P p);
 };
 
 #endif
