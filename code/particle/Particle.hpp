@@ -24,6 +24,8 @@ private:
             if(result) {
                 ++fIParticle;
                 std::cout << "Find " << fName << ' ' << "at the " << fIParticle << "-th " << "position" << '\n';
+            } else {
+                std::cout << "Not Find" << '\n';
             }
         }
     }
