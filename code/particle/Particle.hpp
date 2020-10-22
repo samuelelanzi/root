@@ -2,8 +2,9 @@
 #define PARTICLE_HPP
 
 #include "ParticleType.hpp"
-#include <vector>
 #include <algorithm>
+#include <cmath>
+#include <vector>
 
 struct P {
     double fPx = 0;
@@ -18,22 +19,22 @@ private:
     P fP;
     int fNParticleType = 0;
 
-    void FindParticle(std::vector<ParticleType*> const& particle_v) {
+    ParticleType* FindParticle(std::vector<ParticleType*> const& particle_v) {
         for(auto i : particle_v) {
-            int fIndex = fNParticleType;
-            ++fIndex;
+            ++fNParticleType;
             auto result = i -> getName() == fName;
             if(result) {
-                std::cout << "Find " << fName << ' ' << "at the " << fIndex << "-th " << "position" << '\n';
-            } else {
-                std::cout << "Not Find" << '\n';
-            }
+                return i;
+            } 
         }
     }
 
 public:
     Particle(std::vector<ParticleType*> particle_v, std::string name, P p);
+    P getP();
+    void setP(double const& px, double const& py, double const& pz);
     ParticleType* AddParticleType(std::string const& name, double const& mass, int const& charge, int const& width);
+    double Energy();
 };
 
 #endif
