@@ -20,10 +20,11 @@ private:
 
     void FindParticle(std::vector<ParticleType*> const& particle_v) {
         for(auto i : particle_v) {
-            ++fIParticle;
+            int fIndex = fIParticle;
+            ++fIndex;
             auto result = i -> getName() == fName;
             if(result) {
-                std::cout << "Find " << fName << ' ' << "at the " << fIParticle << "-th " << "position" << '\n';
+                std::cout << "Find " << fName << ' ' << "at the " << fIndex << "-th " << "position" << '\n';
             } else {
                 std::cout << "Not Find" << '\n';
             }
