@@ -14,10 +14,9 @@ struct P {
 class Particle {
 private:
     std::vector<ParticleType*> fParticleType;
-    int fNParticleType;
-    int fIParticle = 0;
-    P fP;
     std::string fName;
+    P fP;
+    int fIParticle = 0;
 
     void FindParticle(std::vector<ParticleType*> const& particle_v) {
         for(auto i : particle_v) {
