@@ -1,7 +1,6 @@
 #include "ParticleType.hpp"
 #include "ResonanceType.hpp"
 #include "Particle.hpp"
-#include <vector>
 
 int main() {
     ParticleType* electron = new ParticleType {"electron", 9.109e-31, -1};
