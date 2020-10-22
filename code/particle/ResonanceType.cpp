@@ -11,4 +11,5 @@ void ResonanceType::Print() {
     std::cout << "Mass: " << fMass << '\n';
     std::cout << "Charge: " << fCharge << '\n';
     std::cout << "Resonance: " << fWidth << '\n';
+    std::cout << '\n';
 }
