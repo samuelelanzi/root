@@ -23,6 +23,21 @@ int main() {
         i -> Print();
     }
 
-    P l_momentum {2.4, 4.8, 0.};
-    Particle par {particle_v, "electron", l_momentum};
+    P e_linearMomentum;
+    P p_linearMomentum;
+    P n_linearMomentum;
+
+    Particle e {particle_v, "electron", e_linearMomentum};
+    Particle p {particle_v, "proton", p_linearMomentum};
+    Particle n {particle_v, "neutron", n_linearMomentum};
+
+    e.setP(1., 1., 1.);
+    p.setP(2., 2., 2.);
+    n.setP(1., 2., 1.);
+
+    std::cout << '\n';
+
+    std::cout << "Electron Energy: " << e.Energy() << '\n';
+    std::cout << "Proton Energy: " << p.Energy() << '\n';
+    std::cout << "Neutron Energy: " << n.Energy() << '\n';
 }
