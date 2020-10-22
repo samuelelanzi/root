@@ -20,9 +20,9 @@ private:
 
     void FindParticle(std::vector<ParticleType*> const& particle_v) {
         for(auto i : particle_v) {
+            ++fIParticle;
             auto result = i -> getName() == fName;
             if(result) {
-                ++fIParticle;
                 std::cout << "Find " << fName << ' ' << "at the " << fIParticle << "-th " << "position" << '\n';
             } else {
                 std::cout << "Not Find" << '\n';
@@ -32,6 +32,7 @@ private:
 
 public:
     Particle(std::vector<ParticleType*> particle_v, std::string name, P p);
+    ParticleType* AddParticleType(std::string const& name, double const& mass, int const& charge, int const& width);
 };
 
 #endif
