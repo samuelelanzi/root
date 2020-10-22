@@ -18,4 +18,5 @@ void ParticleType::Print() {
     std::cout << "Name: " << fName << '\n';
     std::cout << "Mass: " << fMass << '\n';
     std::cout << "Charge: " << fCharge << '\n';
+    std::cout << '\n';
 }
