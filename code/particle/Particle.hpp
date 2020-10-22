@@ -16,11 +16,11 @@ private:
     std::vector<ParticleType*> fParticleType;
     std::string fName;
     P fP;
-    int fIParticle = 0;
+    int fNParticleType = 0;
 
     void FindParticle(std::vector<ParticleType*> const& particle_v) {
         for(auto i : particle_v) {
-            int fIndex = fIParticle;
+            int fIndex = fNParticleType;
             ++fIndex;
             auto result = i -> getName() == fName;
             if(result) {
