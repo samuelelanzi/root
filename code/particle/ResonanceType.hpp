@@ -9,7 +9,9 @@ private:
 
 public:
     ResonanceType(ParticleType particle_t, double width);
-    double getWidth();
+    
+    double getWidth() override;
+
     void Print() override;
 };
 
