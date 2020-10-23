@@ -13,7 +13,7 @@ public:
     std::string getName();
     double getMass();
     int getCharge();
-
+    virtual double getWidth();
     virtual void Print();
 };
 
