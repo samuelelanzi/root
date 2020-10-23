@@ -4,17 +4,17 @@
 
 class ParticleType {
 protected:
-    std::string const fName;
-    double const fMass;
-    int const fCharge;
-    
+  std::string const fName;
+  double const fMass;
+  int const fCharge;
+
 public:
-    ParticleType(std::string name, double mass, int charge);
-    std::string getName();
-    double getMass();
-    int getCharge();
-    virtual double getWidth();
-    virtual void Print();
+  ParticleType(std::string name, double mass, int charge);
+  std::string getName();
+  double getMass();
+  int getCharge();
+  virtual double getWidth();
+  virtual void Print();
 };
 
 #endif
