@@ -14,6 +14,10 @@ int ParticleType::getCharge() {
     return fCharge;
 }
 
+double ParticleType::getWidth() {
+    return 0.;
+}
+
 void ParticleType::Print() {
     std::cout << "Name: " << fName << '\n';
     std::cout << "Mass: " << fMass << '\n';
