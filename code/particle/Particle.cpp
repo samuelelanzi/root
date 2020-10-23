@@ -1,7 +1,6 @@
 #include "Particle.hpp"
 
-ParticleType *
-Particle::FindParticle(std::vector<ParticleType *> const &particle_v) {
+ParticleType *Particle::FindParticle(std::vector<ParticleType *> const &particle_v) {
   for (auto i : particle_v) {
     ++fNParticleType;
     auto result = i->getName() == fName;
@@ -11,8 +10,7 @@ Particle::FindParticle(std::vector<ParticleType *> const &particle_v) {
   }
 }
 
-Particle::Particle(std::vector<ParticleType *> particle_v, std::string name,
-                   P p, int i)
+Particle::Particle(std::vector<ParticleType *> particle_v, std::string name, P p, int i)
     : fParticleType{particle_v}, fName{name}, fP{p}, fIParticle{i} {
   ParticleType *result = FindParticle(particle_v);
   if (result != nullptr) {
@@ -56,7 +54,6 @@ double Particle::Energy() {
 }
 
 void Particle::Boost(double bx, double by, double bz) {
-
   double energy = Energy();
 
   double b2 = bx * bx + by * by + bz * bz;
