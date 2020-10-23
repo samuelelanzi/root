@@ -67,7 +67,7 @@ void Particle::Boost(double bx, double by, double bz) {
   fP.fPz += gamma2 * bp * bz + gamma * bz * energy;
 }
 
-int Particle::Decay2body(Particle &dau1,Particle &dau2) {
+int Particle::Decay2body(Particle& dau1,Particle& dau2) {
   if(getParticleMass() == 0.0) {
     printf("Decayment cannot be preformed if mass is zero\n");
     return 1;
@@ -83,8 +83,8 @@ int Particle::Decay2body(Particle &dau1,Particle &dau2) {
     double invnum = 1. / RAND_MAX;
 
     do {
-      x1 = 2.0 * rand()*invnum - 1.0;
-      x2 = 2.0 * rand()*invnum - 1.0;
+      x1 = 2.0 * rand() * invnum - 1.0;
+      x2 = 2.0 * rand() * invnum - 1.0;
       w = x1 * x1 + x2 * x2;
     } while ( w >= 1.0 );
     
@@ -92,7 +92,7 @@ int Particle::Decay2body(Particle &dau1,Particle &dau2) {
     y1 = x1 * w;
     y2 = x2 * w;
 
-    massMot += fParticleType[fIParticle] -> getMass() * y1;
+    massMot += fParticleType[fIParticle] -> getWidth() * y1;
   }
 
   if(massMot < massDau1 + massDau2){
