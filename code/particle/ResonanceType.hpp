@@ -5,14 +5,14 @@
 
 class ResonanceType : public ParticleType {
 private:
-    double const fWidth;
+  double const fWidth;
 
 public:
-    ResonanceType(ParticleType particle_t, double width);
-    
-    double getWidth() override;
+  ResonanceType(ParticleType particle_t, double width);
 
-    void Print() override;
+  double getWidth() override;
+
+  void Print() override;
 };
 
 #endif
