@@ -1,26 +1,19 @@
 #include "ParticleType.hpp"
 
-ParticleType::ParticleType(std::string name, double mass, int charge) : fName{name}, fMass{mass}, fCharge{charge} {}
+ParticleType::ParticleType(std::string name, double mass, int charge)
+    : fName{name}, fMass{mass}, fCharge{charge} {}
 
-std::string ParticleType::getName() {
-    return fName;
-}
+std::string ParticleType::getName() { return fName; }
 
-double ParticleType::getMass() {
-    return fMass;
-}
+double ParticleType::getMass() { return fMass; }
 
-int ParticleType::getCharge() {
-    return fCharge;
-}
+int ParticleType::getCharge() { return fCharge; }
 
-double ParticleType::getWidth() {
-    return 0.;
-}
+double ParticleType::getWidth() { return 0.; }
 
 void ParticleType::Print() {
-    std::cout << "Name: " << fName << '\n';
-    std::cout << "Mass: " << fMass << '\n';
-    std::cout << "Charge: " << fCharge << '\n';
-    std::cout << '\n';
+  std::cout << "Name: " << fName << '\n';
+  std::cout << "Mass: " << fMass << '\n';
+  std::cout << "Charge: " << fCharge << '\n';
+  std::cout << '\n';
 }
