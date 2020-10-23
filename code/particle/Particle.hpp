@@ -9,38 +9,40 @@
 #include <vector>
 
 struct P {
-    double fPx = 0;
-    double fPy = 0;
-    double fPz = 0;
+  double fPx = 0;
+  double fPy = 0;
+  double fPz = 0;
 };
 
 class Particle {
 private:
-    std::vector<ParticleType*> fParticleType;
-    std::string fName;
-    P fP;
-    int fNParticleType = 0;
-    int fIParticle;
+  std::vector<ParticleType *> fParticleType;
+  std::string fName;
+  P fP;
+  int fNParticleType = 0;
+  int fIParticle;
 
-    ParticleType* FindParticle(std::vector<ParticleType*> const& particle_v);
-    
-    void Boost(double bx, double by, double bz);
+  ParticleType *FindParticle(std::vector<ParticleType *> const &particle_v);
+
+  void Boost(double bx, double by, double bz);
 
 public:
-    Particle(std::vector<ParticleType*> particle_v, std::string name, P p, int i);
+  Particle(std::vector<ParticleType *> particle_v, std::string name, P p,
+           int i);
 
-    int getIParticle();
-    P getP();
-    void setP(double const& px, double const& py, double const& pz);
-    double getParticleMass();
+  int getIParticle();
+  P getP();
+  void setP(double const &px, double const &py, double const &pz);
+  double getParticleMass();
 
-    void printParticle();
+  void printParticle();
 
-    ParticleType* AddParticleType(std::string const& name, double const& mass, int const& charge, int const& width);
+  ParticleType *AddParticleType(std::string const &name, double const &mass,
+                                int const &charge, int const &width);
 
-    double Energy();
+  double Energy();
 
-    int Decay2body(Particle& dau1, Particle& dau2);
+  int Decay2body(Particle &dau1, Particle &dau2);
 };
 
 #endif
