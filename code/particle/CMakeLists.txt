@@ -4,4 +4,4 @@ project(particle CXX)
 enable_testing()
 
 add_executable(particle main.cpp ParticleType.cpp ResonanceType.cpp Particle.cpp invMass.cpp) 
-target_compile_options(particle PRIVATE -std=c++17 -Wall -Wextra)
+target_compile_options(particle PRIVATE -std=c++17) #`root-config --cflags --libs`)
