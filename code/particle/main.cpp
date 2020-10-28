@@ -1,6 +1,7 @@
 #include "Particle.hpp"
 #include "ParticleType.hpp"
 #include "ResonanceType.hpp"
+#include "invMass.hpp"
 
 int main() {
   ParticleType *electron = new ParticleType{"electron", 9.109e-31, -1};
@@ -48,4 +49,7 @@ int main() {
   // std::cout << e.getIParticle() << '\n';
   // std::cout << p.getIParticle() << '\n';
   // std::cout << n.getIParticle() << '\n';
+
+  double invEP = invMass(e, p);
+  std::cout << "\nMass invariant electron/proton: " << invEP << '\n';
 }
