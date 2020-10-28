@@ -2,6 +2,8 @@
 #include "ParticleType.hpp"
 #include "ResonanceType.hpp"
 #include "invMass.hpp"
+#include "TRandom.h"
+#include <random>
 
 int main() {
   ParticleType *electron = new ParticleType{"electron", 9.109e-31, -1};
@@ -52,4 +54,17 @@ int main() {
 
   double invEP = invMass(e, p);
   std::cout << "\nMass invariant electron/proton: " << invEP << '\n';
+  
+  std::random_device rd;
+  std::mt19937 gen(rd());
+  std::uniform_int_distribution<> distrib(1,7);
+  gRandom->SetSeed(distrib(gen));
+  
+  auto phi = gRandom->Uniform(0., 2 * M_PI);
+  std::cout << phi << '\n';
+  auto theta = gRandom->Uniform(0., M_PI);
+  std::cout << theta << '\n';
+  auto P_ = gRandom->Exp(1);
+  std::cout << P_ << '\n';
+
 }
