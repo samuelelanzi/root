@@ -57,14 +57,42 @@ int main() {
   
   std::random_device rd;
   std::mt19937 gen(rd());
-  std::uniform_int_distribution<> distrib(1,7);
-  gRandom->SetSeed(distrib(gen));
+  std::uniform_int_distribution<> distrib(1,100);
+  int seed = distrib(gen);
   
-  auto phi = gRandom->Uniform(0., 2 * M_PI);
-  std::cout << phi << '\n';
-  auto theta = gRandom->Uniform(0., M_PI);
-  std::cout << theta << '\n';
-  auto P_ = gRandom->Exp(1);
-  std::cout << P_ << '\n';
+
+
+  gRandom->SetSeed(seed);
+
+  for(int i = 0; i != 10e5; ++i) {
+    for(int j = 0; j != 10e2; ++j) {
+      int prob_type = distrib(gen);
+      if (prob_type <= 80) {
+          int charge;
+
+          if(prob_type % 2 == 0){
+            charge = 1;
+          } else {
+            charge = -1;
+          }
+
+          std::cout << charge;
+      } else if (prob_type > 80 && prob_type <= 90) {
+
+      } else if (prob_type > 90 && prob_type <= 99) {
+
+      } else {
+
+      }
+
+      auto phi = gRandom->Uniform(0., 2 * M_PI);
+      // std::cout << phi << '\n';
+      auto theta = gRandom->Uniform(0., M_PI);
+      // std::cout << theta << '\n';
+      auto p_ = gRandom->Exp(1);
+      // std::cout << p_ << '\n';
+
+    }
+  }
 
 }
