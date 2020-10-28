@@ -37,8 +37,8 @@ public:
 
   void printParticle();
 
-  ParticleType *AddParticleType(std::string const &name, double const &mass,
-                                int const &charge, int const &width);
+  //ParticleType *AddParticleType(std::string const &name, double const &mass,
+  //                              int const &charge, int const &width);
 
   double Energy();
 
