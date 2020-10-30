@@ -18,8 +18,8 @@ int main() {
   
   gRandom->SetSeed(seed);
 
-  for(int i = 0; i != 10e5; ++i) {
-    for(int j = 0; j != 10e2; ++j) {
+  for (int i = 0; i != 10e5; ++i) {
+    for (int j = 0; j != 10e2; ++j) {
       int prob_type = distrib(gen);
       int charge = rndmCharge(prob_type);
 
@@ -41,6 +41,9 @@ int main() {
         ResonanceType* K_resonance = new ResonanceType {*K_s, 0.050};
         particle_v.push_back(K_s);
       }
+    }
+    for (auto i : particle_v) {
+      i->Print();
     }
   }
 }
