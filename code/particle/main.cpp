@@ -9,8 +9,6 @@
 int main() {
   std::vector<ParticleType*> particle_v{};
 
-  // Particle e{particle_v, "electron", e_linearMomentum, 0};
-  
   std::random_device rd;
   std::mt19937 gen(rd());
   std::uniform_int_distribution<> distrib(1,100);
