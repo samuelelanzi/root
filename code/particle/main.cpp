@@ -3,6 +3,7 @@
 #include "ResonanceType.hpp"
 #include "invMass.hpp"
 #include "TRandom.h"
+#include "rndmCharge.hpp"
 #include <random>
 
 int main() {
