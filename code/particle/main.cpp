@@ -67,16 +67,9 @@ int main() {
   for(int i = 0; i != 10e5; ++i) {
     for(int j = 0; j != 10e2; ++j) {
       int prob_type = distrib(gen);
+      int charge = rndmCharge(prob_type);
+      std::cout << charge;
       if (prob_type <= 80) {
-          int charge;
-
-          if(prob_type % 2 == 0){
-            charge = 1;
-          } else {
-            charge = -1;
-          }
-
-          std::cout << charge;
       } else if (prob_type > 80 && prob_type <= 90) {
 
       } else if (prob_type > 90 && prob_type <= 99) {
