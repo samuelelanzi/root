@@ -2,7 +2,6 @@
 
 ParticleType *Particle::FindParticle(std::vector<ParticleType *> const &particle_v) {
   for (auto i : particle_v) {
-    ++fNParticleType;
     auto result = i->getName() == fName;
     if (result) {
       return i;
@@ -10,12 +9,17 @@ ParticleType *Particle::FindParticle(std::vector<ParticleType *> const &particle
   }
 }
 
-Particle::Particle(std::vector<ParticleType *> particle_v, std::string name, P p, int i)
-    : fParticleType{particle_v}, fName{name}, fP{p}, fIParticle{i} {
+Particle::Particle(std::vector<ParticleType *> particle_v, std::string name, P p)
+    : fParticleType{particle_v}, fName{name}, fP{p} {
+      
+  for (int i = 0; i != fParticleType.size(); ++i) {
+    fIParticle = i;
+  }
+
   ParticleType *result = FindParticle(particle_v);
   if (result != nullptr) {
     std::cout << "Find " << result->getName() << ' ' << "at the "
-              << fNParticleType << "-th "
+              << fIParticle << "-th "
               << "position" << '\n';
   } else {
     std::cout << "Not Find" << '\n';
@@ -24,7 +28,7 @@ Particle::Particle(std::vector<ParticleType *> particle_v, std::string name, P p
 
 void Particle::printParticle() {
   auto p = FindParticle(fParticleType);
-  std::cout << fNParticleType / 2 << " - " << p->getName() << '\n'
+  std::cout << fIParticle << " - " << p->getName() << '\n'
             << "P: (" << fP.fPx << ", " << fP.fPy << ", " << fP.fPz << ")\n\n";
 }
 
