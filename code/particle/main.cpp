@@ -24,36 +24,36 @@ int main() {
       auto phi = gRandom->Uniform(0., 2 * M_PI);
       auto theta = gRandom->Uniform(0., M_PI);
       auto p_ = gRandom->Exp(1);
-
+      std::cout << particle_v.size() << '\n';
       if (prob_type <= 80) {
         P pi_linearMomentum;
         ParticleType* pion = new ParticleType {"pion", 0.13957, charge};
         particle_v.push_back(pion);
-        Particle pi {particle_v, "pion", pi_linearMomentum, j};
+        Particle pi {particle_v, "pion", pi_linearMomentum};
         pi.setP(p_ * std::sin(theta) * std::cos(phi), p_ * std::sin(theta) * std::sin(phi), p_ * std::cos(theta));
-        pi.printParticle();
+        // pi.printParticle();
       } else if (prob_type > 80 && prob_type <= 90) {
         P ka_linearMomentum;
         ParticleType* kaon = new ParticleType {"kaon", 0.49367, charge};
         particle_v.push_back(kaon);
-        Particle ka {particle_v, "kaon", ka_linearMomentum, j};
+        Particle ka {particle_v, "kaon", ka_linearMomentum};
         ka.setP(p_ * std::sin(theta) * std::cos(phi), p_ * std::sin(theta) * std::sin(phi), p_ * std::cos(theta));
-        ka.printParticle();
+        // ka.printParticle();
       } else if (prob_type > 90 && prob_type <= 99) {
         P pr_linearMomentum;
         ParticleType* proton = new ParticleType {"proton", 0.93827, charge};
         particle_v.push_back(proton);
-        Particle pr {particle_v, "proton", pr_linearMomentum, j};
+        Particle pr {particle_v, "proton", pr_linearMomentum};
         pr.setP(p_ * std::sin(theta) * std::cos(phi), p_ * std::sin(theta) * std::sin(phi), p_ * std::cos(theta));
-        pr.printParticle();
+        // pr.printParticle();
       } else {
         P ks_linearMomentum;
         ParticleType* K_s = new ParticleType {"K*", 0.89166, 0};
         ResonanceType* K_resonance = new ResonanceType {*K_s, 0.050};
         particle_v.push_back(K_s);
-        Particle ks {particle_v, "K*", ks_linearMomentum, j};
+        Particle ks {particle_v, "K*", ks_linearMomentum};
         ks.setP(p_ * std::sin(theta) * std::cos(phi), p_ * std::sin(theta) * std::sin(phi), p_ * std::cos(theta));
-        ks.printParticle();
+        // ks.printParticle();
       }
     }
   }
