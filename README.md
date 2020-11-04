@@ -1,9 +1,7 @@
 # root
 ```
 cd code/particle
-mkdir build 
-cd build
-cmake -DCMAKE_BUILD_TYPE=Debug ..
-make
-./particle
+source runROOT.sh
+root [0] .L main.cpp
+root [1] main()
 ```
