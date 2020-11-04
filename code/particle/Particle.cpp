@@ -1,24 +1,25 @@
 #include "Particle.hpp"
 
-ParticleType *Particle::FindParticle(std::vector<ParticleType *> const &particle_v) {
+ParticleType* Particle::FindParticle(std::vector<ParticleType*> &particle_v) {
   for (auto i : particle_v) {
-    auto result = i->getName() == fName;
-    if (result) {
+    auto result = i->getName();
+    if (result == fName) {
       return i;
-    }
+    } 
   }
+  return nullptr;
 }
 
-Particle::Particle(std::vector<ParticleType *> particle_v, std::string name, P p)
+Particle::Particle(std::vector<ParticleType*> particle_v, std::string name, P p)
     : fParticleType{particle_v}, fName{name}, fP{p} {
       
-  for (int i = 0; i != fParticleType.size(); ++i) {
+  for (int i = 0; i != static_cast<int>(fParticleType.size()); ++i) {
     fIParticle = i;
   }
 
-  ParticleType *result = FindParticle(particle_v);
+  ParticleType* result = FindParticle(particle_v);
   if (result != nullptr) {
-    std::cout << "Find " << result->getName() << ' ' << "at the "
+     std::cout << "Find " << result->getName() << ' ' << "at the "
               << fIParticle << "-th "
               << "position" << '\n';
   } else {
