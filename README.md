@@ -1,5 +1,4 @@
-# root
-## Per la Compilazione del Progetto
+## Per la Compilazione del Progetto `code/particle`
 ```
 cd code/particle
 source runROOT.sh
