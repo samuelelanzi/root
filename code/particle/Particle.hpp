@@ -16,15 +16,16 @@ struct P {
 
 class Particle {
 private:
-  std::vector<ParticleType *> fParticleType;
+  std::vector<ParticleType*> fParticleType;
   std::string fName;
   P fP;
+  int fNParticleType = fParticleType.size();
   int fIParticle;
-  ParticleType *FindParticle(std::vector<ParticleType *> const &particle_v);
+  ParticleType* FindParticle(std::vector<ParticleType*> &particle_v);
   void Boost(double bx, double by, double bz);
 
 public:
-  Particle(std::vector<ParticleType *> particle_v, std::string name, P p);
+  Particle(std::vector<ParticleType*> particle_v, std::string name, P p);
 
   int getIParticle();
 
