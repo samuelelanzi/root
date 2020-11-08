@@ -11,6 +11,12 @@
 #include <random>
 
 int main() {
+  ParticleType* pion = new ParticleType {"pion", 0.13957, 0}; // 0 is default
+  ParticleType* kaon = new ParticleType {"kaon", 0.49367, 0};
+  ParticleType* proton = new ParticleType {"proton", 0.93827, 0};
+  ParticleType* K_s = new ParticleType {"K*", 0.89166, 0};
+  ResonanceType* K_resonance = new ResonanceType {*K_s, 0.050};
+
   std::vector<Particle> particle_v{};
 
   std::vector<double> phi_distribution{};
@@ -45,7 +51,7 @@ int main() {
 
       if (prob_type <= 80) 
       {
-        ParticleType* pion = new ParticleType {"pion", 0.13957, charge};
+        pion->setCharge(charge);
         Particle pi {pion, "pion", pi_linearMomentum};
         pi.setP(p_ * std::sin(theta) * std::cos(phi), p_ * std::sin(theta) * std::sin(phi), p_ * std::cos(theta));
         ptr_distribution.push_back(std::sqrt(std::pow(p_ * std::sin(theta) * std::cos(phi), 2) + std::pow(p_ * std::sin(theta) * std::sin(phi), 2)));
@@ -55,7 +61,7 @@ int main() {
 
       else if (prob_type > 80 && prob_type <= 90) 
       {
-        ParticleType* kaon = new ParticleType {"kaon", 0.49367, charge};
+        kaon->setCharge(charge);
         Particle ka {kaon, "kaon", ka_linearMomentum};
         ka.setP(p_ * std::sin(theta) * std::cos(phi), p_ * std::sin(theta) * std::sin(phi), p_ * std::cos(theta));
         ptr_distribution.push_back(std::sqrt(std::pow(p_ * std::sin(theta) * std::cos(phi), 2) + std::pow(p_ * std::sin(theta) * std::sin(phi), 2)));
@@ -65,7 +71,7 @@ int main() {
 
       else if (prob_type > 90 && prob_type <= 99) 
       {
-        ParticleType* proton = new ParticleType {"proton", 0.93827, charge};
+        proton->setCharge(charge);
         Particle pr {proton, "proton", pr_linearMomentum};
         pr.setP(p_ * std::sin(theta) * std::cos(phi), p_ * std::sin(theta) * std::sin(phi), p_ * std::cos(theta));
         ptr_distribution.push_back(std::sqrt(std::pow(p_ * std::sin(theta) * std::cos(phi), 2) + std::pow(p_ * std::sin(theta) * std::sin(phi), 2)));
@@ -75,8 +81,6 @@ int main() {
 
       else 
       {
-        ParticleType* K_s = new ParticleType {"K*", 0.89166, 0};
-        ResonanceType* K_resonance = new ResonanceType {*K_s, 0.050};
         Particle ks {K_s, "K*", ka_linearMomentum};
         ks.setP(p_ * std::sin(theta) * std::cos(phi), p_ * std::sin(theta) * std::sin(phi), p_ * std::cos(theta));
         ptr_distribution.push_back(std::sqrt(std::pow(p_ * std::sin(theta) * std::cos(phi), 2) + std::pow(p_ * std::sin(theta) * std::sin(phi), 2)));
@@ -85,6 +89,16 @@ int main() {
       }      
     }
   }
+
+  for (auto i : particle_v) {
+    if(i.getParticleType()->getName() == "K*") {
+      //i.Decay2body(pi_d, ka_d);
+      //particle_v.push_back(pi_d);
+      //particle_v.push_back(ka_d);
+      std::cout << "Found" << '\n';
+    }
+  }
+
   TCanvas* cPT = new TCanvas("cPT", "Particle Types Distribution", 100, 100, 1100, 700 );
 
   TH1F* hPT = new TH1F("hPT", "Particle Types Distribution", 4, 0, 5);
