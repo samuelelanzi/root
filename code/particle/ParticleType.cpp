@@ -9,6 +9,10 @@ double ParticleType::getMass() { return fMass; }
 
 int ParticleType::getCharge() { return fCharge; }
 
+void ParticleType::setCharge(int &charge) {
+  fCharge = charge;
+}
+
 double ParticleType::getWidth() { return 0.; }
 
 void ParticleType::Print() {
