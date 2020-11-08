@@ -28,19 +28,18 @@ Particle::Particle(ParticleType* particleT, std::string name, P p)
     std::cout << "Not Find" << '\n';
   } */
 }
-/*
+
 void Particle::printParticle() {
   auto p = FindParticle(fParticleType);
   std::cout << fIParticle << " - " << p->getName() << '\n'
             << "P: (" << fP.fPx << ", " << fP.fPy << ", " << fP.fPz << ")\n\n";
 }
-*/
-/*
+
 double Particle::getParticleMass() {
   auto p = FindParticle(fParticleType);
   return p->getMass();
 }
-*/
+
 P Particle::getP() { return fP; }
 
 void Particle::setP(double const &px, double const &py, double const &pz) {
@@ -60,7 +59,7 @@ double Particle::Energy() {
   double E = std::sqrt((m * m) + (lm_x * lm_x) + (lm_y * lm_y) + (lm_z * lm_z));
   return E;
 }
-/*
+
 void Particle::Boost(double bx, double by, double bz) {
   double energy = Energy();
 
@@ -74,12 +73,13 @@ void Particle::Boost(double bx, double by, double bz) {
   fP.fPz += gamma2 * bp * bz + gamma * bz * energy;
 }
 
-int Particle::Decay2body(Particle &dau1, Particle &dau2) {
+void Particle::Decay2body(Particle &dau1, Particle &dau2) {
+  /*
   if (getParticleMass() == 0.0) {
     std::cout << "Decayment cannot be preformed if mass is zero\n";
     return 1;
   }
-
+  */
   double massMot = getParticleMass();
   double massDau1 = dau1.getParticleMass();
   double massDau2 = dau2.getParticleMass();
@@ -101,13 +101,13 @@ int Particle::Decay2body(Particle &dau1, Particle &dau2) {
 
     massMot += fParticleType[fIParticle]->getWidth() * y1;
   }
-
+/*
   if (massMot < massDau1 + massDau2) {
     printf("Decayment cannot be preformed because mass is too low in this "
            "channel\n");
     return 2;
   }
-
+*/
   double pout =
       std::sqrt(
           (massMot * massMot - (massDau1 + massDau2) * (massDau1 + massDau2)) *
@@ -133,8 +133,8 @@ int Particle::Decay2body(Particle &dau1, Particle &dau2) {
   dau1.Boost(bx, by, bz);
   dau2.Boost(bx, by, bz);
 
-  return 0;
-} */
+  //return 0;
+} 
 
 ParticleType* Particle::getParticleType() {
   return FindParticle(fParticleType);
